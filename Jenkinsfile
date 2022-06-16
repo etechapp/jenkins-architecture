@@ -33,7 +33,6 @@ pipeline {
                 label 'slave2'
               }  
             }
-        }
             stage ('slave2-stage-1') {
                 steps {
                     sh 'java -version'
@@ -46,6 +45,7 @@ pipeline {
                     sh 'sudo systemctl status jenkins'
                 }
             }
+        }   
 
         stages ('4-Deploy'){
             agent {
