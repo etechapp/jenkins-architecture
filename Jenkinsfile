@@ -27,14 +27,14 @@ pipeline {
             }
         }
 
-        stage ('3-Test'){
+        stages ('3-Test'){
             agent {
               label {
                 label 'slave2'
               }  
             }
         }
-        stage ('slave2-stage-1') {
+            stage ('slave2-stage-1') {
                 steps {
                     sh 'java -version'
                     echo 'Hello World'
@@ -47,7 +47,7 @@ pipeline {
                 }
             }
 
-        stage ('4-Deploy'){
+        stages ('4-Deploy'){
             agent {
                 label {
                     label 'slave3'
