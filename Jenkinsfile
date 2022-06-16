@@ -33,19 +33,11 @@ pipeline {
                 label 'slave2'
               }  
             }
-            stage ('slave2-stage-1') {
-                steps {
+            steps {
                     sh 'java -version'
                     echo 'Hello World'
-                }
             }
-            stage ('slave2-stage-2') {
-                steps {
-                    sh 'free -g'
-                    sh 'sudo systemctl status jenkins'
-                }
-            }
-        }   
+        }
 
         stage ('4-Deploy'){
             agent {
@@ -53,17 +45,9 @@ pipeline {
                     label 'slave3'
                 }
             }
-            stage ('slave3-stage-1') {
-                steps {
-                    git branch: 'main',
-                          url: "${repoUrl}"
-                }
-            }
-            stage ('slave3-stage-2') {
-                steps {
-                    echo 'The Wonderful Team EtechApp'
-                    echo 'We love DevOps'
-                }
+            steps {
+                sh 'free -g'
+                sh 'sudo systemctl status jenkins'
             }
         }
     }
