@@ -34,8 +34,10 @@ pipeline {
               }  
             }
             steps {
-                    sh 'java -version'
-                    echo 'Hello World'
+                git branch: 'main',
+                url: "${repoUrl}"
+                sh 'java -version'
+                echo 'Hello World'
             }
         }
 
@@ -46,6 +48,8 @@ pipeline {
                 }
             }
             steps {
+                git branch: 'main',
+                url: "${repoUrl}"
                 sh 'free -g'
                 sh 'sudo systemctl status jenkins'
             }
