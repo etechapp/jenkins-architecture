@@ -27,7 +27,7 @@ pipeline {
             }
         }
 
-        stages ('3-Test'){
+        stage ('3-Test'){
             agent {
               label {
                 label 'slave2'
@@ -47,7 +47,7 @@ pipeline {
             }
         }   
 
-        stages ('4-Deploy'){
+        stage ('4-Deploy'){
             agent {
                 label {
                     label 'slave3'
