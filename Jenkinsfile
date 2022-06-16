@@ -34,8 +34,7 @@ pipeline {
               }  
             }
             steps {
-                git branch: 'main',
-                url: "${repoUrl}"
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'GitHubCredentials', url: 'https://github.com/etechapp/jenkins-architecture.git']]])
                 sh 'java -version'
                 echo 'Hello World'
             }
@@ -48,8 +47,7 @@ pipeline {
                 }
             }
             steps {
-                git branch: 'main',
-                url: "${repoUrl}"
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'GitHubCredentials', url: 'https://github.com/etechapp/jenkins-architecture.git']]])
                 sh 'free -g'
                 sh 'sudo systemctl status jenkins'
             }
